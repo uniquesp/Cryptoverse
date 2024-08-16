@@ -10,7 +10,7 @@ const {Title} = Typography
 
 const HomePage = () => {
 
-  const { data, isFetching, error } = useGetCryptosQuery();
+  const { data, isFetching, error } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
 
   if (isFetching) return <p>Loading...</p>;
