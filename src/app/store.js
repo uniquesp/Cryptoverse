@@ -6,6 +6,5 @@ export default configureStore({
         [cryptoApi.reducerPath]: cryptoApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        // Concatenate the RTK Query middleware to the default middleware chain
         getDefaultMiddleware().concat(cryptoApi.middleware),
   });
