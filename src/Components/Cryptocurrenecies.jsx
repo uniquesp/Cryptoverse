@@ -1,10 +1,9 @@
 import React , {useState,useEffect} from 'react'
 import millify from 'millify'
 import {Link} from 'react-router-dom'
-import { Card,Row,Col,Input } from 'antd'
+import { Card,Row,Col,Input,Typography} from 'antd'
+const { Title } = Typography;
 import { useGetCryptosQuery } from '../Services/cryptoApi'
-
-
 
 const Cryptocurrenecies = ({simplified}) => {
   const count = simplified ? 10 : 100;
@@ -22,9 +21,14 @@ const Cryptocurrenecies = ({simplified}) => {
   return (
     <>
       {!simplified && (
-         <div className='search-crypto'>
-         <Input placeholder='Search Cryptocurrency' onChange={(e) => setSearchTerm(e.target.value)}></Input>
-       </div>
+          <>
+            <div>
+              <Title level={2} className="news-title" style={{ textAlign:'justify' }}>Cryptocurrencies</Title>
+            </div>
+            <div className='search-crypto'>
+              <Input placeholder='Search Cryptocurrency' onChange={(e) => setSearchTerm(e.target.value)}></Input>
+            </div>
+         </>
       )}
      
       <Row gutter={[32,32]} className='crypto-card-container'>

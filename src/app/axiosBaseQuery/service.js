@@ -1,15 +1,18 @@
 import axios from "axios";
 
-const axiosInstance = axios.create({
-    baseURL:  process.env.REACT_APP_CRYPTO_API_URL,
+const createAxiosInstance = (baseURL) => {
+  return axios.create({
+    baseURL: baseURL,
     headers: {
       "Content-Type": "application/json",
     },
   });
+};
 
 const axiosBaseQuery =
-  () =>
+  ({ baseUrl }) =>
   async ({ url, method, data, params, headers, body }) => {
+    const axiosInstance = createAxiosInstance(baseUrl);
     try {
       const result = await axiosInstance({
         url: url,
