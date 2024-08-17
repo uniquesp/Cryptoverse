@@ -18,7 +18,7 @@ const News = ({ simplified }) => {
     page,
   });
   const {data} = useGetCryptosQuery(100);
-
+  console.log(cryptoNews);
   if (isLoading) return <Spin size="large" />;
   if (error) return <Alert message="Error" description={error.message} type="error" />;
 
@@ -31,24 +31,21 @@ const News = ({ simplified }) => {
       </div>
       
       <Row gutter={[10, 10]}>
-          <Col span={24}>
-            <Select
-              showSearch
-              className='select-news'
-              placeholder='Select a Crypto'
-              optionFilterProp='children'
-              onChange={(value) => setNewsCategory(value)}
-              filterOption = {(input,option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-            >
-              <Option value='Cryptocurrency'>Cryptocurrency</Option>
-              {data?.data?.coins.map((coin) => <Option value={coin.name}>{coin.name}</Option>)}
-            </Select>
-          </Col>
-
-
-
-
-
+          {!simplified && (
+              <Col span={20}>
+                <Select
+                  showSearch
+                  className='select-news'
+                  placeholder='Select a Crypto'
+                  optionFilterProp='children'
+                  onChange={(value) => setNewsCategory(value)}
+                  filterOption = {(input,option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                >
+                  <Option value='Cryptocurrency'>Cryptocurrency</Option>
+                  {data?.data?.coins.map((coin) => <Option value={coin.name}>{coin.name}</Option>)}
+                </Select>
+              </Col>
+          )};
         {cryptoNews?.data?.map((news, i) => (
           <Col xs={24} sm={12} lg={8} key={i}>
             <Card
