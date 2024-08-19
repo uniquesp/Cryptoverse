@@ -6,6 +6,7 @@ import icon from '../Images/avater.png'
 
 const Navbar = () => {
   return (
+    <>
     <div className='nav-container'>
         <div className='logo-container'>
             <Avatar src={icon} size="large" />
@@ -28,8 +29,8 @@ const Navbar = () => {
             </Menu.Item>
 
         </Menu>
-      
     </div>
+  </>
   )
 }
 

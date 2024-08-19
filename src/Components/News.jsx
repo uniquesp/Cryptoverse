@@ -17,8 +17,9 @@ const News = ({ simplified }) => {
     count,
     page,
   });
+  console.log('News Data:', cryptoNews);
+
   const {data} = useGetCryptosQuery(100);
-  console.log(cryptoNews);
   if (isLoading) return <Spin size="large" />;
   if (error) return <Alert message="Error" description={error.message} type="error" />;
 
@@ -38,7 +39,11 @@ const News = ({ simplified }) => {
                   className='select-news'
                   placeholder='Select a Crypto'
                   optionFilterProp='children'
-                  onChange={(value) => setNewsCategory(value)}
+                 onChange={(value) => {
+                  console.log('Selected Category:', value);
+                  setNewsCategory(value);
+                  setPage(1); 
+                }}
                   filterOption = {(input,option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 >
                   <Option value='Cryptocurrency'>Cryptocurrency</Option>
