@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Select, Typography, Row, Col, Avatar, Card, Spin, Alert } from 'antd';
+import { Select, Typography, Row, Col, Avatar, Card, Spin, Alert, Divider } from 'antd';
 import moment from 'moment';
 import { useGetCryptoNewsQuery } from '../Services/cryptoNewsApi';
 import { useGetCryptosQuery } from '../Services/cryptoApi';
@@ -27,12 +27,12 @@ const News = ({ simplified }) => {
     <>
       <div>
         {!simplified && (
-          <Title level={2} className="news-title" style={{ textAlign:'justify' }}>Cryptocurrency News</Title>
+          <Divider><Title level={2} className='news-title'>Cryptocurrency News</Title></Divider>
         )}
       </div>
       
       <Row gutter={[10, 10]}>
-          {!simplified && (
+          {/* {!simplified && (
               <Col span={20}>
                 <Select
                   showSearch
@@ -50,7 +50,7 @@ const News = ({ simplified }) => {
                   {data?.data?.coins.map((coin) => <Option value={coin.name}>{coin.name}</Option>)}
                 </Select>
               </Col>
-          )};
+          )}; */}
         {cryptoNews?.data?.map((news, i) => (
           <Col xs={24} sm={12} lg={8} key={i}>
             <Card

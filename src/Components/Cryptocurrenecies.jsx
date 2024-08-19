@@ -1,7 +1,7 @@
 import React , {useState,useEffect} from 'react'
 import millify from 'millify'
 import {Link} from 'react-router-dom'
-import { Card,Row,Col,Input,Typography} from 'antd'
+import { Card,Row,Col,Input,Typography,Divider} from 'antd'
 const { Title } = Typography;
 import { useGetCryptosQuery } from '../Services/cryptoApi'
 
@@ -23,7 +23,7 @@ const Cryptocurrenecies = ({simplified}) => {
       {!simplified && (
           <>
             <div>
-              <Title level={2} className="news-title" style={{ textAlign:'justify' }}>Cryptocurrencies</Title>
+             <Divider> <Title level={2} className="news-title">Cryptocurrencies</Title> </Divider>
             </div>
             <div className='search-crypto'>
               <Input placeholder='Search Cryptocurrency' onChange={(e) => setSearchTerm(e.target.value)}></Input>
