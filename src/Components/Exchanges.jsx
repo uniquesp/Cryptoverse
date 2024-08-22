@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Typography, Divider } from 'antd';
 import BgImage from '../Images/coming-soon.png';
+
 const { Title } = Typography;
 
 const Exchanges = () => {
