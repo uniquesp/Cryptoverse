@@ -65,4 +65,18 @@
 
 ## Screenshots
 
-Include some screenshots of the project here to showcase the UI and functionality.
+### Home Page
+![Home Page](https://github.com/uniquesp/cryptoverse/blob/main/screenshots/Home1.png)
+![Home Page](https://github.com/uniquesp/cryptoverse/blob/main/screenshots/Home2.png)
+
+### Cryptocurrencies List
+![Cryptocurrencies Page](https://github.com/uniquesp/cryptoverse/blob/main/screenshots/Cyptocurrencies.png)
+
+### Individual Cryptocurrency Info
+![Individual Data](https://github.com/uniquesp/cryptoverse/blob/main/screenshots/Indiviual%20data.png)
+
+### News Page
+![News Page](https://github.com/uniquesp/cryptoverse/blob/main/screenshots/News.png)
+
+### Exchanges (Premium)
+![Exchanges Page](https://github.com/uniquesp/cryptoverse/blob/main/screenshots/Exchange.png)
