@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Cryptoverse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Cryptoverse** is a cryptocurrency dashboard built with **React.js** and **Redux Toolkit**. It provides real-time data on global cryptocurrency trends, detailed individual currency info, and the latest crypto news using the **CoinRanking** and **NewsAPI**, integrated via **RapidAPI**.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Home Page:** Displays global cryptocurrency status values, top 10 cryptocurrencies, and the top 10 trending news articles in the crypto world.
+- **Cryptocurrencies Page:** Lists all available cryptocurrencies with a powerful search functionality. Users can click on any currency card to view detailed information and an interactive chart of its trends.
+- **Exchanges Page:** Premium feature showcasing cryptocurrency exchanges. This feature is only available after subscribing to the CoinRanking API.
+- **News Page:** Displays the latest trending cryptocurrency news with pagination, showing 10 articles per page for easy navigation.
 
-### `npm start`
+## UI and Functionality
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Interface:** Built using **Ant Design** for a modern, responsive, and clean UI.
+- **State Management:** Powered by **Redux Toolkit** for efficient and scalable state management across the app.
+- **APIs:**
+  - **CoinRanking API** for global crypto stats, individual currency data, and exchange data (premium feature). [CoinRankingAPI](https://rapidapi.com/Coinranking/api/coinranking1)
+  - **NewsAPI** for fetching the latest cryptocurrency-related news. [NewsAPI](https://rapidapi.com/news-api/api/news-api14)
+- **Data Integration:** APIs are integrated via **RapidAPI** for seamless fetching and handling of real-time data.  
+  [Explore RapidAPI Hub](https://rapidapi.com/hub)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Pages
 
-### `npm test`
+1. **Home Page:**
+   - Displays global cryptocurrency status (market cap, total cryptocurrencies, exchanges, etc.).
+   - Shows the top 10 cryptocurrencies with brief information.
+   - Provides the top 10 trending crypto news articles.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Cryptocurrencies Page:**
+   - Displays a list of all available cryptocurrencies.
+   - Search functionality allows users to quickly find any cryptocurrency.
+   - Clicking on a crypto card displays detailed information, including a chart of its recent trends.
 
-### `npm run build`
+3. **Exchanges Page:**
+   - A premium feature that provides information on cryptocurrency exchanges.
+   - This page requires a subscription to access via the CoinRanking API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **News Page:**
+   - Shows the latest trending cryptocurrency news.
+   - Powerful pagination is implemented, with 10 news articles displayed per page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Frontend:** React.js, Ant Design
+- **State Management:** Redux Toolkit
+- **APIs:** CoinRanking API, NewsAPI (via RapidAPI)
+- **Data Visualization:** Chart.js
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/cryptoverse.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up your environment variables:
+   - Create a `.env` file and add your **RapidAPI** key and **CoinRanking API** key.
+4. Run the project:
+   ```bash
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Screenshots
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Include some screenshots of the project here to showcase the UI and functionality.
