@@ -3,19 +3,17 @@ import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Col, Row, Typography } from 'antd';
 
-// Register the necessary components
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const { Title: AntTitle } = Typography;
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
-  const coinPrice = [];
-  const coinTimestamp = [];
+  if (!coinHistory?.data?.history?.length) return null;
 
-  for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-    coinPrice.push(coinHistory?.data?.history[i].price);
-    coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString());
-  }
+  const coinPrice = coinHistory.data.history.map((item) => parseFloat(item.price));
+  const coinTimestamp = coinHistory.data.history.map((item) =>
+    new Date(item.timestamp * 1000).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+  );
 
   const data = {
     labels: coinTimestamp,
@@ -32,14 +30,38 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
 
   const options = {
     scales: {
+      // x: {
+      //   ticks: {
+      //     maxTicksLimit: 10,  // Limits the number of x-axis labels
+      //     maxRotation: 0,     // Prevents label rotation for better readability
+      //     callback: function (value, index) {
+      //       // Show only every nth label to avoid clutter
+      //       const tickInterval = Math.ceil(coinTimestamp.length / 10); // Adjust as needed
+      //       return index % tickInterval === 0 ? this.getLabelForValue(value) : '';
+      //     },
+      //   },
+      // },
       y: {
         beginAtZero: true,
-        min: 0,
-        max: 75000,
+        min: Math.min(...coinPrice) - 1000,
+        max: Math.max(...coinPrice) + 1000,
         ticks: {
-          stepSize: 5000,
           callback: function (value) {
             return `$${value.toLocaleString()}`;
+          },
+        },
+      },
+    },
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            return `$${context.parsed.y.toLocaleString()}`;
           },
         },
       },
@@ -51,7 +73,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
       <Row className="chart-header">
         <AntTitle level={2} className="chart-title">{coinName} Price Chart</AntTitle>
         <Col className="price-container">
-          <AntTitle level={5} className="price-change">Change: {coinHistory?.data?.change}%</AntTitle>
+          <AntTitle level={5} className="price-change">Change: {coinHistory.data.change}%</AntTitle>
           <AntTitle level={5} className="current-price">Current {coinName} Price: $ {currentPrice}</AntTitle>
         </Col>
       </Row>
